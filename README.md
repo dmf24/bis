@@ -44,7 +44,7 @@ bis-finish
 
 #### Set by `bis` before script is called.
 - `FULLNAME` - Full name of the file, without the `.bis` extension. Set by `bis` before invoking the script.  (`python-2.7.14-gcc-6.2.0`)
-- `WORKSPACE` - Set by `bis` to `$WORKSPACE_ROOT/$FULLNAME` `$HOME/.bis/workspace/python-2.7.14-gcc-6.2.0`
+- `WORKSPACE` - Set by `bis` to `$WORKSPACE_ROOT/$FULLNAME` (`$HOME/.bis/workspace/python-2.7.14-gcc-6.2.0`)
 - `NAME` - Name of the application.  Set by `bis` to the first token in filename. (`python`)
 - `VERSION` - Version of the application, the second token in the filename (`2.7.14`)
 - `NAME2` - Name of compiler, etc.  Third filename token (`gcc`)
