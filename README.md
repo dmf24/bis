@@ -18,12 +18,12 @@ Filename: `hello-0.0.1-generic.bis`
 SUMMARY="Hello, World"
 
 #Set important variables based on environment and filename (including $INSTALL_DIR)
-# also creates and cds to $WORKSPACE at /n/app/bis/workspace/hello-0.0.1-generic
+# also creates and cds to $WORKSPACE at $HOME/.bis/workspace/hello-0.0.1-generic
 bis-init
 
 # Clean and unpack source into workspace
 # Determins $UNPACKPATH and cds to it
-# /n/app/bis/workspace/hello-0.0.1-generic/hello-0.0.1
+# $HOME/.bis/workspace/hello-0.0.1-generic/hello-0.0.1
 bis-unpack
 
 ./configure --prefix=$INSTALL_DIR
@@ -38,13 +38,13 @@ bis-finish
 
 #### Variables set to a default value, intended to be overridden by calling environment
 
-- `INSTALL_ROOT` - Root directory for all installations. Should be set in environment. (`/n/app`)
-- `SOURCES` - Path to source repository.  Should be set in environment. (`/n/app/sources`)
-- `WORKSPACE_ROOT` - Path to build workspace directory.  Source tarballs will be unpacked to this directory. (`/n/app/bis/workspace`)
+- `INSTALL_ROOT` - Root directory for all installations. Should be set in environment. (`$HOME/opt`)
+- `SOURCES` - Path to source repository.  Should be set in environment. (`$HOME/src`)
+- `WORKSPACE_ROOT` - Path to build workspace directory.  Source tarballs will be unpacked to this directory. (`$HOME/.bis/workspace`)
 
 #### Set by `bis` before script is called.
 - `FULLNAME` - Full name of the file, without the `.bis` extension. Set by `bis` before invoking the script.  (`python-2.7.14-gcc-6.2.0`)
-- `WORKSPACE` - Set by `bis` to `$WORKSPACE_ROOT/$FULLNAME` `/n/app/bis/workspace/python-2.7.14-gcc-6.2.0`
+- `WORKSPACE` - Set by `bis` to `$WORKSPACE_ROOT/$FULLNAME` `$HOME/.bis/workspace/python-2.7.14-gcc-6.2.0`
 - `NAME` - Name of the application.  Set by `bis` to the first token in filename. (`python`)
 - `VERSION` - Version of the application, the second token in the filename (`2.7.14`)
 - `NAME2` - Name of compiler, etc.  Third filename token (`gcc`)
@@ -52,9 +52,9 @@ bis-finish
 
 #### Set by `bis-init`.
 - `SOURCE_FILENAME` - The base filename of the source tarball. Set by `bis-init` to $NAME-$VERSION.$extension, where extension is determined by searching $SOURCES for supported archive formats.  (`python-2.7.14.tgz`)
-- `SOURCE` - The full path to the source tarball.  Set to `$SOURCES/$SOURCE_FILENAME`.  (`/n/app/sources/python-2.7.14.tgz`)
-- `INSTALL_DIR` - Install prefix for the application.  Set by `bis-init` to `$INSTALL_ROOT/$NAME/$VERSION` (`/n/app/python/2.7.14`)
-- `UNPACKPATH` - Inspects the $SOURCE archive to see if it extracts to a single directory.  If the archive has multiple directories or files in its root, `UNPACKPATH` is set to `WORKSPACE`.  (`/n/app/bis/workspace/python-2.7.14-gcc-6.2.0/Python-2.7.14`)
+- `SOURCE` - The full path to the source tarball.  Set to `$SOURCES/$SOURCE_FILENAME`.  (`$HOME/src/python-2.7.14.tgz`)
+- `INSTALL_DIR` - Install prefix for the application.  Set by `bis-init` to `$INSTALL_ROOT/$NAME/$VERSION` (`$HOME/opt/python/2.7.14`)
+- `UNPACKPATH` - Inspects the $SOURCE archive to see if it extracts to a single directory.  If the archive has multiple directories or files in its root, `UNPACKPATH` is set to `WORKSPACE`.  (`$HOME/.bis/workspace/python-2.7.14-gcc-6.2.0/Python-2.7.14`)
 
 #### Not set by anything, but may be used.
 
