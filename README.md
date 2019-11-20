@@ -7,7 +7,7 @@ The basic usage of bis is `bis build-script.bis` where `build-script.bis` is a f
 - Export several build-related bash functions, documented below.
 - Split the filename into tokens on hyphens (`-`)
 - Set $NAME to the first token and $VERSION to the second token.  NAME{2,3} and VERSION{2,3} are set for additional tokens.
-- Invoke the script as a bash function with all of tokens passed as arguments (`$@`) so that the NAME amd VERSION variables can be fixed manually if necessary.
+- Invoke the script as a bash function with all of tokens passed as arguments (`$@`) so that the NAME and VERSION variables can be fixed manually if necessary.
 
 Bis expects $INSTALL_ROOT and $SOURCES to be defined prior to script invocation.  This means the tool invoking the script (eg Jenkins) can set INSTALL_ROOT based on whether it is a production build or not.
 
