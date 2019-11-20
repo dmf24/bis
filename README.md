@@ -1,6 +1,6 @@
 # Bis (Build Install Script)
 
-Bis is a wrapper for bash meant to help automate compilation and installation of  software in a consistent way while remaining flexible and simple.  Hopefully it can replace rpmbuild by emulating some of its more useful features without its more distribution oriented features.
+Bis is a wrapper for bash meant to help automate compilation and installation of  software in a consistent way while remaining flexible and simple.  It was originally written to replace use of rpmbuild in an environment that was not interested in actually creating package files.  The is that bis would implement some of the needed features without its more distribution-oriented restrictions.
 
 The basic usage of bis is `bis build-script.bis` where `build-script.bis` is a filename in the form of alternating (name, version) pairs delimited with dashes.  Bis will:
 
