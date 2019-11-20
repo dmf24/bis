@@ -4,10 +4,10 @@ Bis is a wrapper for bash meant to help automate compilation and installation of
 
 The basic usage of bis is `bis build-script.bis` where `build-script.bis` is a filename in the form of alternating (name, version) pairs delimited with dashes.  Bis will:
 
-- Exports several build-related bash functions, documented below.
-- Splits the filename into tokens on hyphens (`-`)
-- Sets $NAME to the first token and $VERSION to the second token.  NAME{2,3} and VERSION{2,3} are set for additional tokens.
-- Invokes the script as a bash function with all of tokens passed as arguments (`$@`) so that the NAME amd VERSION variables can be fixed manually if necessary.
+- Export several build-related bash functions, documented below.
+- Split the filename into tokens on hyphens (`-`)
+- Set $NAME to the first token and $VERSION to the second token.  NAME{2,3} and VERSION{2,3} are set for additional tokens.
+- Invoke the script as a bash function with all of tokens passed as arguments (`$@`) so that the NAME amd VERSION variables can be fixed manually if necessary.
 
 Bis expects $INSTALL_ROOT and $SOURCES to be defined prior to script invocation.  This means the tool invoking the script (eg Jenkins) can set INSTALL_ROOT based on whether it is a production build or not.
 
