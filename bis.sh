@@ -141,6 +141,7 @@ bis-set-unpack-path () {
 	export UNPACKPATH=$WORKSPACE
 	echo "WARNING: archive does not appear to unpack to a single directory"
 	echo "         Setting unpack path to $WORKSPACE" >&2
+	export NOT_SINGLE_DIR=1
     fi
 }
 export -f bis-set-unpack-path
@@ -203,8 +204,13 @@ bis-clean () {
 	cd $UNPACKPATH
 	make clean
     else
-	echo "DEBUG:" rm -rf $UNPACKPATH
-	rm -rf $UNPACKPATH
+	if [ $NOT_SINGLE_DIR = 1 ]
+	then
+	    echo "DEBUG:" rm -rf $UNPACKPATH/*
+	else
+	    echo "DEBUG:" rm -rf $UNPACKPATH
+	    rm -rf $UNPACKPATH
+	fi
     fi
 }
 export -f bis-clean
