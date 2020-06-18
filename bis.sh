@@ -68,7 +68,7 @@ archive-type () {
     test "${FILENAME: -7}" = ".tar.gz" && ARCHIVE=targz
     test "${FILENAME: -7}" = ".tar.xz" && ARCHIVE=tarxz
     test "${FILENAME: -8}" = ".tar.bz2" && ARCHIVE=tarbz2
-    echo '#' archive type: $ARCHIVE
+    echo $ARCHIVE
 }
 export -f archive-type
 
@@ -110,8 +110,7 @@ bis-unarchive () {
     workdir=$2
     ARCHIVE_TYPE=$(archive-type $S)
     cd $workdir
-    echo $(pwd)
-    echo $ARCHIVE_TYPE
+    echo "# archive type: $ARCHIVE_TYPE"
     case $ARCHIVE_TYPE in
 	tar)
 	    tar -xf $S
@@ -193,6 +192,7 @@ bis-init () {
     then
 	test -d "$WORKSPACE" || mkdir -p $WORKSPACE
 	cd $WORKSPACE && echo "# Changed CWD to $WORKSPACE"
+	echo "$(pwd)"
     fi
 }
 export -f bis-init
