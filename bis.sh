@@ -139,7 +139,7 @@ bis-set-unpack-path () {
 	export UNPACKPATH=$WORKSPACE/$updir
     else
 	export UNPACKPATH=$WORKSPACE
-	echo "WARNING: archive does not appear to unpack to a single directory"
+	echo "WARNING: archive does not appear to unpack to a single directory" >&2
 	echo "         Setting unpack path to $WORKSPACE" >&2
     fi
 }
