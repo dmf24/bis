@@ -68,7 +68,7 @@ archive-type () {
     test "${FILENAME: -7}" = ".tar.gz" && ARCHIVE=targz
     test "${FILENAME: -7}" = ".tar.xz" && ARCHIVE=tarxz
     test "${FILENAME: -8}" = ".tar.bz2" && ARCHIVE=tarbz2
-    echo $ARCHIVE
+    echo '#' archive type: $ARCHIVE
 }
 export -f archive-type
 
@@ -192,7 +192,7 @@ bis-init () {
     if [ "$1" != "no-cd-to-workspace" ]
     then
 	test -d "$WORKSPACE" || mkdir -p $WORKSPACE
-	cd $WORKSPACE && echo "Changed CWD to $WORKSPACE"
+	cd $WORKSPACE && echo "# Changed CWD to $WORKSPACE"
     fi
 }
 export -f bis-init
