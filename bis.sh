@@ -109,6 +109,7 @@ bis-unarchive () {
     S=$1
     workdir=$2
     ARCHIVE_TYPE=$(archive-type $S)
+    echo "Unarchiving $S ($ARCHIVE_TYPE) to workdir: $workdir"
     cd $workdir
     echo "# archive type: $ARCHIVE_TYPE"
     case $ARCHIVE_TYPE in
@@ -190,6 +191,7 @@ bis-init () {
     bis-verify
     if [ "$1" != "no-cd-to-workspace" ]
     then
+	echo "test -d $WORKSPACE || mkdir -p $WORKSPACE"
 	test -d "$WORKSPACE" || mkdir -p $WORKSPACE
 	cd $WORKSPACE && echo "# Changed CWD to $WORKSPACE"
 	echo "$(pwd)"
