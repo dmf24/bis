@@ -189,6 +189,7 @@ bis-init () {
     export SOURCE=${SOURCE:-$SOURCES/$SOURCE_FILENAME}
     test -z "$UNPACKPATH" && bis-set-unpack-path
     bis-verify
+    echo "bis-init says: $1"
     if [ "$1" != "no-cd-to-workspace" ]
     then
 	echo "test -d $WORKSPACE || mkdir -p $WORKSPACE"
