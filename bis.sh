@@ -212,7 +212,7 @@ bis-clean () {
 export -f bis-clean
 
 bis-unpack () {
-    bis-clean
+    bis-clean $1
     echo "unarchiving $SOURCE"
     bis-unarchive $SOURCE $WORKSPACE
     cd $UNPACKPATH
