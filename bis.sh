@@ -4,7 +4,7 @@ export SOURCES=${SOURCES:-$HOME/src}
 export MODULESLIB=${MODULESLIB:-/etc/profile.d/modules.sh}
 export BIS_BUILD=${BIS_BUILD:-$HOME/.bis/build}
 export WORKSPACE_ROOT=${WORKSPACE_ROOT:-$BIS_BUILD/workspace}
-export INSTALL_ROOT=${INSTALL_ROOT:-$HOME/opt}
+export BIS_INSTALL_ROOT=${BIS_INSTALL_ROOT:-$HOME/opt}
 
 export src_extensions="tar.gz tgz zip tar.bz2 tar.xz"
 
@@ -149,7 +149,7 @@ bis-verify () {
     test -z "$SOURCE" && echo WARNING: SOURCE not set
     test -z "$WORKSPACE" && echo WARNING: WORKSPACE not set
     test -z "$INSTALL_DIR" && echo WARNING: INSTALL_DIR not set
-    test -z "$INSTALL_ROOT" && echo WARNING: INSTALL_ROOT not set
+    test -z "$BIS_INSTALL_ROOT" && echo WARNING: BIS_INSTALL_ROOT not set
     test -f "$SOURCE" || echo WARNING: source package $SOURCE does not exist
 
 }
@@ -159,7 +159,7 @@ bis-show-vars () {
     test -n "$SOURCE_FILENAME" && echo "SOURCE_FILENAME=$SOURCE_FILENAME"
     test -n "$SOURCE" && echo "SOURCE=$SOURCE"
     test -n "$SOURCE_URL" && echo "SOURCE_URL=$SOURCE_URL"
-    test -n "$INSTALL_ROOT" && echo "INSTALL_ROOT=$INSTALL_ROOT"
+    test -n "$BIS_INSTALL_ROOT" && echo "BIS_INSTALL_ROOT=$BIS_INSTALL_ROOT"
     test -n "$INSTALL_DIR" && echo "INSTALL_DIR=$INSTALL_DIR"
     test -n "$WORKSPACE" && echo "WORKSPACE=$WORKSPACE"
     test -n "$WORKSPACE_ROOT" && echo "WORKSPACE_ROOT=$WORKSPACE_ROOT"
@@ -179,7 +179,7 @@ bis-show-vars () {
 export -f bis-show-vars
 
 bis-init () {
-    export INSTALL_DIR=${INSTALL_DIR:-$INSTALL_ROOT/$NAME/$VERSION}
+    export INSTALL_DIR=${INSTALL_DIR:-$BIS_INSTALL_ROOT/$NAME/$VERSION}
     for ex in $src_extensions
     do
 	test -f $SOURCES/$NAME-$VERSION.$ex && EXT=$ex
