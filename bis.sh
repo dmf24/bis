@@ -4,7 +4,7 @@ export SOURCES=${SOURCES:-$HOME/src}
 export MODULESLIB=${MODULESLIB:-/etc/profile.d/modules.sh}
 export BIS_BUILD=${BIS_BUILD:-$HOME/.bis/build}
 export WORKSPACE_ROOT=${WORKSPACE_ROOT:-$BIS_BUILD/workspace}
-export BIS_INSTALL_ROOT=${BIS_INSTALL_ROOT:-$HOME/opt}
+export BIS_INSTALL_ROOT_DEFAULT=${BIS_INSTALL_ROOT_DEFAULT:-$HOME/opt}
 
 export src_extensions="tar.gz tgz zip tar.bz2 tar.xz"
 
